@@ -7,7 +7,7 @@ push constant 6
 push constant 2
 call Math.divide 2
 pop local 1
-push constant 25
+push constant 26
 call Math.sqrt 1
 pop local 2
 push local 0
