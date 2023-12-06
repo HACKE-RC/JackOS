@@ -1,0 +1,11 @@
+class Main{
+    function void main(){
+        var int k, l;
+        let k = Math.multiply(5, 3);
+        let l = Math.divide(6, 2);
+        do Output.printInt(k);
+        do Output.println();
+        do Output.printInt(l);
+        return;
+    }
+}
