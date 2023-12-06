@@ -1,11 +1,23 @@
 class Main{
     function void main(){
-        var int k, l;
+        var int k, l, m, n, o, p;
         let k = Math.multiply(5, 3);
         let l = Math.divide(6, 2);
+        let m = Math.sqrt(26);
+        let n = Math.abs(2);
+        let o = Math.min(2, 6);
+        let p = Math.max(4, 22);
         do Output.printInt(k);
         do Output.println();
         do Output.printInt(l);
+        do Output.println();
+        do Output.printInt(m);
+        do Output.println();
+        do Output.printInt(n);
+        do Output.println();
+        do Output.printInt(o);
+        do Output.println();
+        do Output.printInt(p);
         return;
     }
 }
