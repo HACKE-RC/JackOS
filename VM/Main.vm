@@ -10,6 +10,17 @@ pop local 1
 push constant 26
 call Math.sqrt 1
 pop local 2
+push constant 2
+call Math.abs 1
+pop local 3
+push constant 2
+push constant 6
+call Math.min 2
+pop local 4
+push constant 4
+push constant 22
+call Math.max 2
+pop local 5
 push local 0
 call Output.printInt 1
 pop temp 0
@@ -24,6 +35,19 @@ push local 2
 call Output.printInt 1
 pop temp 0
 call Output.println 0
+pop temp 0
+push local 3
+call output.printint 1
+pop temp 0
+call output.println 0
+pop temp 0
+push local 4
+call output.printint 1
+pop temp 0
+call output.println 0
+pop temp 0
+push local 5
+call output.printint 1
 pop temp 0
 push constant 0
 return
