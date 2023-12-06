@@ -37,17 +37,17 @@ pop temp 0
 call Output.println 0
 pop temp 0
 push local 3
-call output.printint 1
+call Output.printInt 1
 pop temp 0
-call output.println 0
+call Output.println 0
 pop temp 0
 push local 4
-call output.printint 1
+call Output.printInt 1
 pop temp 0
-call output.println 0
+call Output.println 0
 pop temp 0
 push local 5
-call output.printint 1
+call Output.printInt 1
 pop temp 0
 push constant 0
 return
