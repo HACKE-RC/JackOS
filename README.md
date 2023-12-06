@@ -1,2 +1,2 @@
 # JackOS
-Operating System components code for the Jack Programming Language.
+Operating System components code for the Jack Operating System.
