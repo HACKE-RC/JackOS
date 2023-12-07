@@ -1,6 +1,6 @@
 class Main{
     function void main(){
-        var int k, l, m, n, o, p;
+        var int k, l, m, n, o, p, q;
         let k = Math.multiply(5, 3);
         let l = Math.divide(6, 2);
         let m = Math.sqrt(26);
@@ -18,6 +18,8 @@ class Main{
         do Output.printInt(o);
         do Output.println();
         do Output.printInt(p);
+        do Memory.poke(19003, 5);
+        do Output.printInt(Memory.peek(19003));
         return;
     }
 }
