@@ -27,7 +27,7 @@ class Memory{
         var Array flist_current_block;
         var Array block;
         let flist_current_block = freeList;
-        let current_size = flist[1];
+        let current_size = flist_current_block[1];
         while (~(flist_current_block = 0) & (current_size < (size + 2))){
             let flist_current_block = flist_current_block[0];
             let current_size = flist_current_block[1];
@@ -37,7 +37,7 @@ class Memory{
             do Sys.error(5);
         }
 
-        flist_current_block[1] = (current_size - size - 2);
+        let flist_current_block[1] = (current_size - size - 2);
 
         let block = (flist_current_block + current_size + 2) - size;
         let flist_current_block = block - 2;
@@ -50,8 +50,8 @@ class Memory{
     function void deAlloc(Array arr){
         var Array base;
         let base = arr - 2;
-        base[0] = freeList;
-        freeList = base;
+        let base[0] = freeList;
+        let freeList = base;
         return;
     }
 }
