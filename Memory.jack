@@ -1,7 +1,14 @@
 class Memory{
     static Array RAM;
+    static Array HEAP;
+    static Array freeList;
+
     function void init(){
         let RAM = 0;
+        let HEAP = 2048;
+        let freeList = HEAP;
+        let HEAP[0] = 0; // heap.next
+        let HEAP[1] = 14335; // heap.size
         return;
     }
 
@@ -11,6 +18,40 @@ class Memory{
 
     function void poke(int address, int value) {
         let RAM[address] = value;
+        return;
+    }
+
+    function Array alloc(int size){
+        var int current_size;
+        var int allocated_block;
+        var Array flist_current_block;
+        var Array block;
+        let flist_current_block = freeList;
+        let current_size = flist[1];
+        while (~(flist_current_block = 0) & (current_size < (size + 2))){
+            let flist_current_block = flist_current_block[0];
+            let current_size = flist_current_block[1];
+        }
+
+        if (flist_current_block = 0){
+            do Sys.error(5);
+        }
+
+        flist_current_block[1] = (current_size - size - 2);
+
+        let block = (flist_current_block + current_size + 2) - size;
+        let flist_current_block = block - 2;
+        let flist_current_block[0] = 0;
+        let flist_current_block[1] = size;
+
+        return block;
+    }
+
+    function void deAlloc(Array arr){
+        var Array base;
+        let base = arr - 2;
+        base[0] = freeList;
+        freeList = base;
         return;
     }
 }
