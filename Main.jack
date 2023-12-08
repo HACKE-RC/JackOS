@@ -21,6 +21,10 @@ class Main{
         do Output.println();
         do Memory.poke(19003, 5);
         do Output.printInt(Memory.peek(19003));
+        do Output.println();
+        do Output.printInt(85);
+        do Output.println();
+        do Output.printInt(85 | 16384);
         return;
     }
 }

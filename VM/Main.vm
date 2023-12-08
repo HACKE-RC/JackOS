@@ -49,12 +49,26 @@ pop temp 0
 push local 5
 call Output.printInt 1
 pop temp 0
+call Output.println 0
+pop temp 0
 push constant 19003
 push constant 5
 call Memory.poke 2
 pop temp 0
 push constant 19003
 call Memory.peek 1
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 85
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push constant 85
+push constant 16384
+or
 call Output.printInt 1
 pop temp 0
 push constant 0
