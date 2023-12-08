@@ -37,57 +37,124 @@ class Screen{
         return;
     }
 
-    function void drawLine(int x1, y1, x2, y2) {
-        var int x, y, a, b, dx, dy, diff;
-        // a = up, b down times
-        let x = x1;
-        let y = y1;
-        let dx = Math.abs(x2 - x1);
-        let dy = Math.abs(y2 - y1);
-        let diff = 0;
+   function void drawLine(int x1, int y1, int x2, int y2) {
+		var int offsetX, offsetY;
+		var int dx, dy;
+		var int diff;
 
-        if (dy = 0){
-            while(~(x1 = x2)){
-                if (x1 < x2){
-                    let x1 = x1 + 1;
-                }
-                else{
-                    let x1 = x1 - 1;
-                }
+		
+		let dx = Math.abs(x2 - x1);
+		let dy = Math.abs(y2 - y1);		
 
-                do Screen.drawPixel(x1, y1);
-            }
+		// horizontal
+		if (dy = 0)
+		{
+			while (~(x1 = x2))
+			{
+				if (x1 < x2)
+				{
+					let x1 = x1 + 1;
+				}
+				else
+				{
+					let x1 = x1 - 1;
+				}
+				
+				do Screen.drawPixel(x1, y1);
+			}
 
-            do Screen.drawLine(x1, y1);
-            return;
-        }
-        else{
-            if (dx = 0){
-                while (~(y1 = y2)){
-                    if (y1 < y2){
-                        let y1 = y1 + 1;
-                    }
-                    else{
-                        let y1 = y1 - 1;
-                    }
-                    do Screen.drawPixel(x1, y1);
-                }
-                do Screen.drawPixel(x1, y1);
-                return;
-            }
-        }
+			do Screen.drawPixel(x1, y1);
+			return;
+		}
+		else
+		{
+			// vertical
+			if (dx = 0)
+			{
+				while (~(y1 = y2))
+				{
+					if (y1 < y2)
+					{
+						let y1 = y1 + 1;
+					}
+					else
+					{
+						let y1 = y1 - 1;
+					}
+				
+					do Screen.drawPixel(x1, y1);
+				}
 
+				do Screen.drawPixel(x1, y1);
+				return;	
+			}
+		}
 
-        while ((a <= dx) & (b <= dy)){
-            do drawPixel(x + a, y + b);
-            if (diff < 0) {
-                let a = a + 1;
-                let diff += dy;
-            }
-            else{
-                let b = b + 1;
-                let diff -= dx;
-            }
-        }
-    }
+		let diff = 0;
+		while ((offsetX < (dx+1)) & (offsetY < (dy+1)))
+		{
+			// north-east
+			if ((x2 > x1) & (y2 < y1))
+			{
+				do Screen.drawPixel(x1+offsetX, y1-offsetY);
+				if (diff < 0)
+				{
+					let offsetX = offsetX + 1;
+					let diff = diff + dy;
+				}
+				else
+				{
+					let offsetY = offsetY + 1;
+					let diff = diff - dx;
+				}
+			}
+			// south-east
+			if ((x2 > x1) & (y2 > y1))
+			{
+				do Screen.drawPixel(x1+offsetX, y1+offsetY);
+				if (diff < 0)
+				{
+					let offsetX = offsetX + 1;
+					let diff = diff + dy;
+				}
+				else
+				{
+					let offsetY = offsetY + 1;
+					let diff = diff - dx;
+				}
+			}
+			// south-west
+			if ((x2 < x1) & (y2 > y1))
+			{
+				do Screen.drawPixel(x1-offsetX, y1+offsetY);
+				if (diff < 0)
+				{
+					let offsetX = offsetX + 1;
+					let diff = diff + dx;
+				}
+				else
+				{
+					let offsetY = offsetY + 1;
+					let diff = diff - dy;
+				}
+			}
+			// north-west
+			if ((x2 < x1) & (y2 < y1))
+			{
+				do Screen.drawPixel(x1-offsetX, y1-offsetY);
+				if (diff < 0)
+				{
+					let offsetX = offsetX + 1;
+					let diff = diff + dx;
+				}
+				else
+				{
+					let offsetY = offsetY + 1;
+					let diff = diff - dy;
+				}
+			}
+		}
+
+		return;
+    } 
 }
