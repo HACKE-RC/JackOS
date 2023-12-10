@@ -34,9 +34,13 @@ class Main{
         do Output.printString(str);
         do Output.println();
         do Output.printInt(str.length()); 
-        do Output.printInt(123); 
-        do str.setInt(123);
-        // do Output.printString(str);
+        do Output.println();
+        do Output.printInt(1234); 
+        do Output.printInt(5678); 
+        do Output.printInt(9); 
+        do Output.println();
+        do str.setInt(456);
+        do Output.printString(str);
         return;
     }
 }

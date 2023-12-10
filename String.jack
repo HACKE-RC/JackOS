@@ -53,10 +53,12 @@ class String{
         var int ch;
         var int lastDigit;
         if (x < 0){ 
-            let str[0] = 45; // minus sign
-            let length = 1;
-            let x = -x;
-        }
+            if (maxL > 0){
+                let str[0] = 45; // minus sign
+                let length = 1;
+                let x = -x;
+            }
+       }
         else{
             let length = 0;
         }
