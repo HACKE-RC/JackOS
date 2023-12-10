@@ -50,29 +50,31 @@ class String{
     }
 
     method void setInt(int x){
-        var String c;
+        var int ch;
         var int lastDigit;
-        // / var String int;
-        if (x < 0){
+        if (x < 0){ 
             let str[0] = 45; // minus sign
             let length = 1;
+            let x = -x;
         }
         else{
             let length = 0;
         }
        
-        
-        let c = String.new(length);
 
-        let lastDigit = (x - ((x / 10) * 10));
-        let c = c.appendChar(lastDigit + 48);
+        let lastDigit = x - ((x / 10) * 10);
+        let ch = lastDigit + 48;
         if (x < 10){
             // return c;
         }
         else{
-            do c.setInt(x / 10);
+            do setInt(x / 10);
         }
-        let str = c;
+        if (maxL > length){
+            let str[length] = ch;
+            let length = length + 1;
+        }
+        // let str = c;
         return;
     }
 

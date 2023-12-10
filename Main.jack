@@ -33,9 +33,9 @@ class Main{
         do str.appendChar(99);
         do Output.printString(str);
         do Output.println();
-        // do Output.printInt(str.length()); 
+        do Output.printInt(str.length()); 
         do Output.printInt(123); 
-        // do str.setInt(123);
+        do str.setInt(123);
         // do Output.printString(str);
         return;
     }
