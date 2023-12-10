@@ -251,7 +251,7 @@ class Output {
         var String intString;
         let intString = String.new(6);
         do intString.setInt(k);
-        do Output.printString(s);
+        do Output.printString(intString);
         return;
     }
     function void println(){

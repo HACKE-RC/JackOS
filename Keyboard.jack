@@ -1,0 +1,60 @@
+class Keyboard{
+    static int KEYBOARD;
+    function void init(){
+        let KEYBOARD = 24576;
+        return;
+    }
+
+    function char keyPressed(){
+        return KEYBOARD[0];
+    }
+
+    function char readChar(){
+        var char key;
+        var int i;
+        let key = 0;
+        while(key = 0){
+            let key = Keyboard.keyPressed();
+        }
+
+        while(~(Keyboard.keyPressed() = 0)){}
+        do Output.printChar(key);
+        return key;
+    }
+
+    function String readLine(String out){
+        var String line;
+        var char c;
+        var boolean read;
+        let read = true;
+        let line = String.new(64);
+
+        do Output.printString(out);
+        while(read){
+            let c = Keyboard.readChar();
+            
+            if (c = String.newLine()){
+                do Output.println();
+                return line;
+            }
+            else{
+                if (c = String.backSpace()){
+                    if (line.length() > 0){
+                        do line.eraseLastChar();
+                    }
+                    do Output.backspace();
+                }
+                else {
+                    let line = line.appendChar(c);
+                }
+            }
+        }
+        return line;
+    }
+
+    function int readInt(String message){
+        var String inp;
+        let inp = Keyboard.readLine(message);
+        return s.intValue();
+    }
+}

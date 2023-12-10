@@ -32,7 +32,7 @@ class Screen{
             do Memory.poke(address, value | mask);  
         } 
         else{
-            do Memory.poke(address, value & (~mask))
+            do Memory.poke(address, value & (~mask));
         } 
         return;
     }
@@ -165,7 +165,7 @@ class Screen{
         while (dy < (r+1)){
             let x1 = cx - Math.sqrt((r*r) - (dy*dy));
             let x2 = cx + Math.sqrt((r*r) - (dy*dy));
-            do drawLine(x1, cy + dy, x2, cy + dy);
+            do Screen.drawLine(x1, cy + dy, x2, cy + dy);
 
             let dy = dy + 1;
         }

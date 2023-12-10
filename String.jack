@@ -1,0 +1,125 @@
+class String{
+    field Array str;
+    field int length;
+    field int maxL;
+
+    constructor String new (int maxLength){
+        if (maxLength > 0){
+            let str = Array.new(maxLength);
+        }
+        let length = 0;
+        let maxL = maxLength;
+        return this;
+    }
+
+    method int length(){
+        return length;
+    }
+
+    method char charAt(int i){
+        if (i < length){
+            return str[i];
+        }
+        else{
+            return 0;
+        }
+    }
+    method void setCharAt(int i, char c){
+        // String  
+        if (i < length){
+            let str[i] = c; 
+        }
+        else{
+        }
+        return;
+    }
+   
+    method String appendChar(char c) {
+		if (length < maxL) {	
+			let str[length] = c;
+			let length = length + 1;
+		}
+
+		return this;
+    } 
+
+    method void eraseLastChar(){
+        let str[length - 1] = 0;
+        let length = length - 1;
+        return;
+    }
+
+    method void setInt(int x){
+        var String c;
+        var int lastDigit;
+        // / var String int;
+        if (x < 0){
+            let str[0] = 45; // minus sign
+            let length = 1;
+        }
+        else{
+            let length = 0;
+        }
+       
+        
+        let c = String.new(length);
+
+        let lastDigit = (x - ((x / 10) * 10));
+        let c = c.appendChar(lastDigit + 48);
+        if (x < 10){
+            // return c;
+        }
+        else{
+            do c.setInt(x / 10);
+        }
+        let str = c;
+        return;
+    }
+
+    method int intValue(){
+        var int res, i;
+        var bool negative;
+        let res = 0;
+        let i = 0;
+
+        if (maxL = 0){
+            return 0;
+        }
+
+        if (str[0] = 45){
+            let negative = true;
+            let i = i + 1;
+        }
+        else{
+            let negative = false;
+        }
+
+        while (i < str.length()){
+            if ((str[i] > 47) & (str[i] < 58)){
+                let res = (res * 10) + (str[i] - 48);
+            }
+            else{
+                return -1;
+            }
+            let i = i + 1;
+        }
+
+        if (negative){
+            let res = -res;
+        }
+
+        return res;
+    }
+
+    function char newLine(){
+        return 128;
+    }
+
+    function char backSpace(){
+        return 129;
+    }
+
+    function char doubleQuote(){
+        return 34;
+    }
+}
