@@ -21,11 +21,11 @@ class Memory{
         return;
     }
 
-    function Array alloc(int size){
+    function int alloc(int size){
         var int current_size;
         var int allocated_block;
         var Array flist_current_block;
-        var Array block;
+        var int block;
         let flist_current_block = freeList;
         let current_size = flist_current_block[1];
         while (~(flist_current_block = 0) & (current_size < (size + 2))){

@@ -1,5 +1,5 @@
 class Math {
-	static Array twoToThe;
+	static int twoToThe;
 
 	function void init() {
 		let twoToThe = Array.new(16);
